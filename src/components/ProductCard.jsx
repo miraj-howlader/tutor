@@ -26,18 +26,20 @@ const ProductCard = ({ product }) => {
           {product.name}
         </h2>
 
+        <p className='capitalize'>{product.category}</p>
+
         {/* Price */}
         <p className="text-violet-600 font-bold text-xl">
-          ${product.price}
+          ${product.hourly}
         </p>
 
         {/* Button */}
-      <Link href={`/products/${product._id}`}>
+      <Link href={`/tutors/${product._id}`}>
         <button
     
           className="w-full mt-3  cursor-pointer flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white py-2.5 rounded-xl font-medium hover:opacity-90 active:scale-95 transition"
         >
-         Product Details
+         Book
         </button>
       </Link>
       </div>

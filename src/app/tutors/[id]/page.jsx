@@ -44,7 +44,17 @@ const ProductDetailsPage = async ({ params }) => {
           </p>
 
           <p className="text-gray-600 leading-relaxed">
-            {singleProduct.description}
+            {singleProduct.hourly}
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            {singleProduct.availableDays}
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            {singleProduct.slog}
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            {singleProduct.experience}
           </p>
 
           <div className="space-y-3 text-gray-700">
