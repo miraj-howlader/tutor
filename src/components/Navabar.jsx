@@ -37,26 +37,14 @@ const Navbar = () => {
 
           <div>
             <h1 className="text-lg font-bold tracking-wide text-white">
-              MirajShop
+              Tutor Booking System
             </h1>
             <p className="text-xs text-gray-400">
-              Premium Store
+              Premium Booking Website
             </p>
           </div>
         </Link>
 
-        {/* MIDDLE SEARCH BAR */}
-        <div className="hidden flex-1 md:flex">
-          <div className="relative mx-auto w-full max-w-xl">
-            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-
-            <input
-              type="text"
-              placeholder="Search products..."
-              className="h-12 w-full rounded-2xl border border-white/10 bg-white/5 pl-12 pr-4 text-sm text-white outline-none transition-all duration-300 placeholder:text-gray-500 focus:border-violet-500 focus:bg-white/10"
-            />
-          </div>
-        </div>
 
         {/* DESKTOP MENU */}
         <div className="hidden items-center gap-6 lg:flex">
@@ -68,24 +56,32 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/products"
+            href="/tutors"
             className="text-sm font-medium text-gray-300 transition hover:text-violet-400"
           >
-            All Products
+            Tutors
           </Link>
 
-          <Link
-            href="/create-products"
+        {isLoggedIn &&  <Link
+            href="/add-tutors"
             className="text-sm font-medium text-gray-300 transition hover:text-violet-400"
           >
-            Create Product
-          </Link>
-          <Link
-            href="/all-orders"
+            Add Tutors
+          </Link>}
+
+         {isLoggedIn && <Link
+            href="/my-tutors"
             className="text-sm font-medium text-gray-300 transition hover:text-violet-400"
           >
-            All Orders
-          </Link>
+            My Tutors
+          </Link>}
+
+        {isLoggedIn &&  <Link
+            href="/my-booked"
+            className="text-sm font-medium text-gray-300 transition hover:text-violet-400"
+          >
+            My Booked Sessions 
+          </Link>}
 
           {!isLoggedIn ? (
             <div className="flex items-center gap-3">
