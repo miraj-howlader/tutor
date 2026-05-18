@@ -146,17 +146,17 @@ const Navbar = () => {
             </Link>
 
             <Link
-              href="/products"
+              href="/tutors"
               className="text-sm font-medium text-gray-300 transition hover:text-violet-400"
             >
-              All Products
+              All Tutors
             </Link>
 
             <Link
-              href="/create-products"
+              href="/add-tutors"
               className="text-sm font-medium text-gray-300 transition hover:text-violet-400"
             >
-              Create Product
+              Add Tutors
             </Link>
 
             {!isLoggedIn ? (
