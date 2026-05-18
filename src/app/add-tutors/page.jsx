@@ -110,17 +110,17 @@ const CreateProducts = () => {
           >
             <div className="mb-4">
               <h2 className="text-3xl font-bold text-gray-800">
-                Add Product
+                Add Tutors
               </h2>
               <p className="text-gray-500 mt-2">
                 Fill all information carefully
               </p>
             </div>
 
-            {/* Product Name */}
+            {/* Tutor Name */}
             <TextField isRequired name="name" type="text">
               <Label className="text-sm font-medium text-gray-700">
-                Product Name
+                Tutor Name
               </Label>
 
               <div className="relative">
@@ -134,18 +134,17 @@ const CreateProducts = () => {
 
               <FieldError />
             </TextField>
-
-            {/* Description */}
-            <TextField isRequired name="description" type="text">
+             
+            <TextField isRequired name="image" type="url">
               <Label className="text-sm font-medium text-gray-700">
-                Description
+                Tutor Image
               </Label>
 
               <div className="relative">
-                <AlignLeft className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+                <ImageIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
 
                 <Input
-                  placeholder="Write product description"
+                  placeholder="Paste image URL"
                   className="pl-11 h-14 w-110 rounded-2xl border border-gray-200"
                 />
               </div>
@@ -153,44 +152,9 @@ const CreateProducts = () => {
               <FieldError />
             </TextField>
 
-            {/* Price */}
-            <TextField isRequired name="price" type="number">
-              <Label className="text-sm font-medium text-gray-700">
-                Price
-              </Label>
-
-              <div className="relative">
-                <BadgeDollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
-
-                <Input
-                  placeholder="Enter product price"
-                  className="pl-11 h-14 w-110 rounded-2xl border border-gray-200"
-                />
-              </div>
-
-              <FieldError />
-            </TextField>
-            <TextField isRequired name="stock" type="text">
-              <Label className="text-sm font-medium text-gray-700">
-                InStock
-              </Label>
-
-              <div className="relative">
-                <BadgeDollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
-
-                <Input
-                  placeholder="InStock"
-                  className="pl-11 h-14 w-110 rounded-2xl border border-gray-200"
-                />
-              </div>
-
-              <FieldError />
-            </TextField>
-
-            {/* Category */}
             <div>
               <Label className="text-sm font-medium text-gray-700 mb-2">
-                Category
+                Subject/Category
               </Label>
 
               <Select
@@ -206,29 +170,53 @@ const CreateProducts = () => {
                 <Select.Popover>
                   <ListBox className="p-2">
                     <ListBox.Item
-                      id="men"
-                      textValue="Men"
+                      id="bangla"
+                      textValue="Bangla"
                       className="rounded-xl"
                     >
-                      Men
+                      Bangla
                       <ListBox.ItemIndicator />
                     </ListBox.Item>
 
                     <ListBox.Item
-                      id="women"
-                      textValue="Women"
+                      id="english"
+                      textValue="English"
                       className="rounded-xl"
                     >
-                      Women
+                      English
                       <ListBox.ItemIndicator />
                     </ListBox.Item>
 
                     <ListBox.Item
-                      id="kids"
-                      textValue="Kids"
+                      id="math"
+                      textValue="Math"
                       className="rounded-xl"
                     >
-                      Kids
+                      Math
+                      <ListBox.ItemIndicator />
+                    </ListBox.Item>
+                    <ListBox.Item
+                      id="physics"
+                      textValue="Physics"
+                      className="rounded-xl"
+                    >
+                      Physics
+                      <ListBox.ItemIndicator />
+                    </ListBox.Item>
+                    <ListBox.Item
+                      id="chemisty"
+                      textValue="Chemisty"
+                      className="rounded-xl"
+                    >
+                      Chemisty
+                      <ListBox.ItemIndicator />
+                    </ListBox.Item>
+                    <ListBox.Item
+                      id="biology"
+                      textValue="biology"
+                      className="rounded-xl"
+                    >
+                      Biology
                       <ListBox.ItemIndicator />
                     </ListBox.Item>
                   </ListBox>
@@ -236,23 +224,167 @@ const CreateProducts = () => {
               </Select>
             </div>
 
-            {/* Image URL */}
-            <TextField isRequired name="image" type="url">
+            {/* Available Days */}
+            <TextField isRequired name="availableDays" type="date">
               <Label className="text-sm font-medium text-gray-700">
-                Image URL
+                Available Days
               </Label>
 
               <div className="relative">
-                <ImageIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+                <AlignLeft className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
 
                 <Input
-                  placeholder="Paste image URL"
+                  placeholder="Write product description"
                   className="pl-11 h-14 w-110 rounded-2xl border border-gray-200"
                 />
               </div>
 
               <FieldError />
             </TextField>
+
+            {/* Hourly fee */}
+            <TextField isRequired name="hourly" type="number">
+              <Label className="text-sm font-medium text-gray-700">
+                Hourly fee
+              </Label>
+
+              <div className="relative">
+                <BadgeDollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                <Input
+                  placeholder="Hourly fee"
+                  className="pl-11 h-14 w-110 rounded-2xl border border-gray-200"
+                />
+              </div>
+
+              <FieldError />
+            </TextField>
+
+             {/* Total slot */}
+            <TextField isRequired name="slot" type="number">
+              <Label className="text-sm font-medium text-gray-700">
+                Total slot
+              </Label>
+
+              <div className="relative">
+                <BadgeDollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                <Input
+                  placeholder="Total slot"
+                  className="pl-11 h-14 w-110 rounded-2xl border border-gray-200"
+                />
+              </div>
+
+              <FieldError />
+            </TextField>
+
+               {/* Session Start Date */}
+            <TextField isRequired name="session" type="date">
+              <Label className="text-sm font-medium text-gray-700">
+                Session Start Date
+              </Label>
+
+              <div className="relative">
+                <BadgeDollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                <Input
+                  placeholder="Total slot"
+                  className="pl-11 h-14 w-110 rounded-2xl border border-gray-200"
+                />
+              </div>
+
+              <FieldError />
+            </TextField>
+
+            
+               {/* Institution & Experience */}
+            <TextField isRequired name="experience" type="number">
+              <Label className="text-sm font-medium text-gray-700">
+               Institution & Experience
+              </Label>
+
+              <div className="relative">
+                <BadgeDollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                <Input
+                  placeholder="4 Years Experience"
+                  className="pl-11 h-14 w-110 rounded-2xl border border-gray-200"
+                />
+              </div>
+
+              <FieldError />
+            </TextField>
+
+             
+               {/* Area & City */}
+            <TextField isRequired name="experience" type="text">
+              <Label className="text-sm font-medium text-gray-700">
+               Area / City 
+              </Label>
+
+              <div className="relative">
+                <BadgeDollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                <Input
+                  placeholder="area & city "
+                  className="pl-11 h-14 w-110 rounded-2xl border border-gray-200"
+                />
+              </div>
+
+              <FieldError />
+            </TextField>
+
+
+            {/* Teaching Mode */}
+            <div>
+              <Label className="text-sm font-medium text-gray-700 mb-2">
+                Teaching Mode
+              </Label>
+
+              <Select
+                name="teachingmode"
+                className="w-full"
+                placeholder="Select Mode"
+              >
+                <Select.Trigger className="h-14 rounded-2xl border border-gray-200 px-4">
+                  <Select.Value />
+                  <Select.Indicator />
+                </Select.Trigger>
+
+                <Select.Popover>
+                  <ListBox className="p-2">
+                    <ListBox.Item
+                      id="online"
+                      textValue="Online"
+                      className="rounded-xl"
+                    >
+                      Online
+                      <ListBox.ItemIndicator />
+                    </ListBox.Item>
+
+                    <ListBox.Item
+                      id="offline"
+                      textValue="offline"
+                      className="rounded-xl"
+                    >
+                      Offline
+                      <ListBox.ItemIndicator />
+                    </ListBox.Item>
+
+                    <ListBox.Item
+                      id="both"
+                      textValue="Both"
+                      className="rounded-xl"
+                    >
+                      Both
+                      <ListBox.ItemIndicator />
+                    </ListBox.Item>
+                  </ListBox>
+                </Select.Popover>
+              </Select>
+            </div>
+
+          
 
             {/* Button */}
             <Button
