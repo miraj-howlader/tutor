@@ -36,25 +36,35 @@ const ProductDetailsPage = async ({ params }) => {
             <Button variant='danger'>Delete Product</Button>
         </div>
           <h1 className="text-3xl font-bold text-gray-800">
-            {singleProduct.name}
+            Name: {singleProduct.name}
           </h1>
 
-          <p className="text-2xl font-bold text-violet-600">
-            ${singleProduct.price}
+         
+
+          <p className="text-gray-600 leading-relaxed font-bold">
+            Hourly: ${singleProduct.hourly}
           </p>
 
           <p className="text-gray-600 leading-relaxed">
-            {singleProduct.hourly}
-          </p>
-
-          <p className="text-gray-600 leading-relaxed">
-            {singleProduct.availableDays}
+             AvailableDays: {singleProduct.availableDays}
           </p>
           <p className="text-gray-600 leading-relaxed">
-            {singleProduct.slog}
+            TimeSlot {singleProduct.timeslot}
           </p>
           <p className="text-gray-600 leading-relaxed">
-            {singleProduct.experience}
+            Slot: {singleProduct.slot}
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            Session: {singleProduct.session}
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            Experience: {singleProduct.experience} Years
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            Location: {singleProduct.location}
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            Teachingmode: {singleProduct.teachingmode}
           </p>
 
           <div className="space-y-3 text-gray-700">
@@ -64,14 +74,11 @@ const ProductDetailsPage = async ({ params }) => {
               <span>Category: <b>{singleProduct.category}</b></span>
             </div>
 
-            <div className="flex items-center gap-2">
-              <Boxes className="w-5 h-5 text-violet-500" />
-              <span>Stock: <b>{singleProduct.stock}</b></span>
-            </div>
+    
 
             <div className="flex items-center gap-2">
               <Package className="w-5 h-5 text-violet-500" />
-              <span>Premium Quality Product</span>
+              <span>Premium Quality Tutors</span>
             </div>
           </div>
 
@@ -81,7 +88,7 @@ const ProductDetailsPage = async ({ params }) => {
             {/* Add to Cart (Link to API or client button later) */}
             <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white py-3 rounded-2xl font-semibold hover:opacity-90 active:scale-95 transition">
               <ShoppingCart size={18} />
-              Add to Order
+              Booking
             </button>
 
           </div>
