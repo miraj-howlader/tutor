@@ -1,3 +1,4 @@
+import BookingCard from '@/components/BookingCard'
 import EditProduct from '@/components/EditProduct'
 import { Button } from '@heroui/react'
 import { Boxes, ClipboardList, Package, ShoppingCart, Tag } from 'lucide-react'
@@ -86,10 +87,9 @@ const ProductDetailsPage = async ({ params }) => {
           <div className="pt-6 space-y-3">
 
             {/* Add to Cart (Link to API or client button later) */}
-            <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white py-3 rounded-2xl font-semibold hover:opacity-90 active:scale-95 transition">
-              <ShoppingCart size={18} />
-              Booking
-            </button>
+            
+              <BookingCard singleProduct={singleProduct}/>
+            
 
           </div>
         </div>
