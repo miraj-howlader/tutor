@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { BookOpen } from 'lucide-react'
 
 const ProductCard = ({ product }) => {
   return (
@@ -39,6 +40,7 @@ const ProductCard = ({ product }) => {
     
           className="w-full mt-3  cursor-pointer flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white py-2.5 rounded-xl font-medium hover:opacity-90 active:scale-95 transition"
         >
+          <BookOpen/>
          Book
         </button>
       </Link>
