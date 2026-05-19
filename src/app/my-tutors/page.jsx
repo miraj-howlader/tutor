@@ -1,6 +1,7 @@
 'use client'
 
-import { Table } from '@heroui/react'
+import EditProduct from '@/components/EditProduct'
+import { Button, Table } from '@heroui/react'
 
 import React, { useEffect, useState } from 'react'
 
@@ -78,47 +79,61 @@ const MyTutors = () => {
   // }
 
   return (
-     <div className="max-w-6xl mx-auto p-4">
+<div className="p-4">
+  <Table>
+    <Table.Content aria-label="Team members">
+      <Table.Header>
+        <Table.Column isRowHeader className='font-bold text-sm text-black'>Name</Table.Column>
+        <Table.Column className='font-bold text-sm text-black'>Category</Table.Column>
+        <Table.Column className='font-bold text-sm text-black'>AvailableDays</Table.Column>
+        <Table.Column className='font-bold text-sm text-black'>Hourly</Table.Column>
+        <Table.Column className='font-bold text-sm text-black'>Experience</Table.Column>
+        <Table.Column className='font-bold text-sm text-black'>Location</Table.Column>
+        <Table.Column className='font-bold text-sm text-black'>TeachingMode</Table.Column>
+        <Table.Column className='font-bold text-sm text-black'>Actions</Table.Column>
+      </Table.Header>
 
-       <Table>
-      <Table.ScrollContainer>
-        <Table.Content aria-label="Team members" className="min-w-400 overflow-hidden">
-          <Table.Header>
-            <Table.Column isRowHeader>Name</Table.Column>
-            <Table.Column>Role</Table.Column>
-            <Table.Column>Status</Table.Column>
-            <Table.Column>Email</Table.Column>
-          </Table.Header>
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>Kate Moore</Table.Cell>
-              <Table.Cell>CEO</Table.Cell>
-              <Table.Cell>Active</Table.Cell>
-              <Table.Cell>kate@acme.com</Table.Cell>
+      <Table.Body>
+        {tutors.length > 0 ? (
+          tutors.map((tutor) => (
+            <Table.Row key={tutor._id}>
+              <Table.Cell>{tutor.name}</Table.Cell>
+              <Table.Cell>{tutor.category}</Table.Cell>
+              <Table.Cell>{tutor.availableDays}</Table.Cell>
+              <Table.Cell>{tutor.hourly}</Table.Cell>
+              <Table.Cell>{tutor.experience}</Table.Cell>
+              <Table.Cell>{tutor.location}</Table.Cell>
+              <Table.Cell>{tutor.teachingmode}</Table.Cell>
+
+              <Table.Cell>
+                <div className="flex gap-2">
+                 
+                   <EditProduct singleProduct={tutor}/>
+                 
+
+                  <Button size="sm" variant="danger">
+                    Delete
+                  </Button>
+                </div>
+              </Table.Cell>
             </Table.Row>
-            <Table.Row>
-              <Table.Cell>John Smith</Table.Cell>
-              <Table.Cell>CTO</Table.Cell>
-              <Table.Cell>Active</Table.Cell>
-              <Table.Cell>john@acme.com</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Sara Johnson</Table.Cell>
-              <Table.Cell>CMO</Table.Cell>
-              <Table.Cell>On Leave</Table.Cell>
-              <Table.Cell>sara@acme.com</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Michael Brown</Table.Cell>
-              <Table.Cell>CFO</Table.Cell>
-              <Table.Cell>Active</Table.Cell>
-              <Table.Cell>michael@acme.com</Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table.Content>
-      </Table.ScrollContainer>
-    </Table>
-    </div>
+          ))
+        ) : (
+          <Table.Row>
+            <Table.Cell>No tutors found</Table.Cell>
+            <Table.Cell></Table.Cell>
+            <Table.Cell></Table.Cell>
+            <Table.Cell></Table.Cell>
+            <Table.Cell></Table.Cell>
+            <Table.Cell></Table.Cell>
+            <Table.Cell></Table.Cell>
+            <Table.Cell></Table.Cell>
+          </Table.Row>
+        )}
+      </Table.Body>
+    </Table.Content>
+  </Table>
+</div>
   )
 }
 
