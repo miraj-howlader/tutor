@@ -34,6 +34,11 @@ const ProductCard = ({ product }) => {
           ${product.hourly}
         </p>
 
+        {/* Price */}
+        <p className="text-violet-600 font-bold text-xl">
+          {product.availableDays}
+        </p>
+
         {/* Button */}
       <Link href={`/tutors/${product._id}`}>
         <button
