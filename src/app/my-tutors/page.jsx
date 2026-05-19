@@ -1,5 +1,6 @@
 'use client'
 
+import DeleteDialog from '@/components/DeleteDialog'
 import EditProduct from '@/components/EditProduct'
 import { Button, Table } from '@heroui/react'
 
@@ -111,9 +112,7 @@ const MyTutors = () => {
                    <EditProduct singleProduct={tutor}/>
                  
 
-                  <Button size="sm" variant="danger">
-                    Delete
-                  </Button>
+                 <DeleteDialog tutors={tutor}/>
                 </div>
               </Table.Cell>
             </Table.Row>

@@ -1,7 +1,7 @@
 'use client'
 
 import ProductCard from '@/components/ProductCard'
-import { Search } from 'lucide-react'
+import { Loader, Loader2, Search } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 
 const AllProducts = () => {
@@ -63,8 +63,8 @@ const AllProducts = () => {
       {/* Products */}
       {loading ? (
         <div className="flex justify-center items-center py-20">
-          <p className="text-lg font-medium text-gray-500">
-            Loading products...
+          <p className="text-2xl  font-medium text-gray-500">
+            <Loader size={55}/>
           </p>
         </div>
       ) : filteredProducts.length > 0 ? (

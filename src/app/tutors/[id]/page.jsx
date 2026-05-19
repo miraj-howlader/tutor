@@ -1,7 +1,6 @@
 import BookingCard from '@/components/BookingCard'
-import EditProduct from '@/components/EditProduct'
-import { Button } from '@heroui/react'
-import { Boxes, ClipboardList, Package, ShoppingCart, Tag } from 'lucide-react'
+
+import { Package, Tag } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -32,10 +31,7 @@ const ProductDetailsPage = async ({ params }) => {
 
         {/* Details Section */}
         <div className="p-8 space-y-5">
-           <div className=' flex justify-end gap-5'>
-            <EditProduct singleProduct={singleProduct}/>
-            <Button variant='danger'>Delete Product</Button>
-        </div>
+         
           <h1 className="text-3xl font-bold text-gray-800">
             Name: {singleProduct.name}
           </h1>

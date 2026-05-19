@@ -37,7 +37,7 @@ const Navbar = () => {
 
           <div>
             <h1 className="text-lg font-bold tracking-wide text-white">
-              Tutor Booking System
+              MediQueue 
             </h1>
             <p className="text-xs text-gray-400">
               Premium Booking Website

@@ -5,9 +5,11 @@ import { authClient } from '@/lib/auth-client'
 import { Button } from '@heroui/react'
 import toast from 'react-hot-toast'
 import { CalendarPlus, Loader2, User } from 'lucide-react'
+import { redirect, useRouter } from 'next/navigation'
 
 const BookingCard = ({ singleProduct }) => {
   const { data: session } = authClient.useSession()
+  const router = useRouter()
   const user = session?.user
 
   const [loading, setLoading] = useState(false)
@@ -46,6 +48,7 @@ const BookingCard = ({ singleProduct }) => {
       }
 
       toast.success('Booking successful 🎉')
+      router.push('/my-booked')
     } catch (error) {
       toast.error(error.message || 'Something went wrong')
     } finally {
