@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navabar";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/Footer";
+import Providers from "./Provider";
 
 
 
@@ -23,12 +24,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
+    suppressHydrationWarning
       lang="en"
       className={`${poppins.variable}  h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col ">
         <Navbar/>
-        {children}
+        
+          {children}
+        
         <Footer/>
         <Toaster/>
         </body>

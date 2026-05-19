@@ -11,6 +11,10 @@ const MyBookedPage = async () => {
 
   const user = session?.user
 
+  const {token} = await auth.api.getToken({
+    headers: await headers()
+  })
+
   if (!user) {
     return (
       <div className="p-6 text-red-500">
@@ -20,8 +24,12 @@ const MyBookedPage = async () => {
   }
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${user.id}`,
-    { cache: 'no-store' }
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${user?.id}`,
+    {
+      headers:{
+        authorization: `Bearer ${token}`
+      }
+    }
   )
 
   const result = await res.json()
