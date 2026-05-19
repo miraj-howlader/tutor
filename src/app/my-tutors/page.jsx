@@ -100,8 +100,8 @@ const MyTutors = () => {
               <Table.Cell>{tutor.name}</Table.Cell>
               <Table.Cell>{tutor.category}</Table.Cell>
               <Table.Cell>{tutor.availableDays}</Table.Cell>
-              <Table.Cell>{tutor.hourly}</Table.Cell>
-              <Table.Cell>{tutor.experience}</Table.Cell>
+              <Table.Cell>${tutor.hourly}</Table.Cell>
+              <Table.Cell>{tutor.experience} years</Table.Cell>
               <Table.Cell>{tutor.location}</Table.Cell>
               <Table.Cell>{tutor.teachingmode}</Table.Cell>
 
@@ -120,7 +120,7 @@ const MyTutors = () => {
           ))
         ) : (
           <Table.Row>
-            <Table.Cell>No tutors found</Table.Cell>
+            <Table.Cell className={'text-2xl font-bold flex items-center justify-center'}>Opps No tutors found 😒😒</Table.Cell>
             <Table.Cell></Table.Cell>
             <Table.Cell></Table.Cell>
             <Table.Cell></Table.Cell>

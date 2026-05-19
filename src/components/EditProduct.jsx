@@ -6,7 +6,7 @@ import {
 } from "@heroui/react";
 
 import {
-  AlignLeft, BadgeDollarSign, ImageIcon,
+  AlignLeft, BadgeDollarSign, Edit, ImageIcon,
   Loader2, Package
 } from 'lucide-react';
 
@@ -43,8 +43,8 @@ const EditProduct = ({ singleProduct }) => {
         throw new Error(data?.message || "Update failed")
       }
 
-      toast.success("Product updated successfully")
-      router.push('/products')
+      toast.success("Tutors updated successfully")
+      router.push('/tutors')
 
     } catch (error) {
       toast.error(error.message)
@@ -56,7 +56,7 @@ const EditProduct = ({ singleProduct }) => {
   return (
     <Modal>
       <Button className="bg-gradient-to-r from-violet-600 to-fuchsia-500 text-white rounded-xl px-5 py-2 shadow-md hover:scale-[1.02] transition">
-        Edit Product
+        <Edit/>
       </Button>
 
       <Modal.Backdrop>
@@ -77,7 +77,7 @@ const EditProduct = ({ singleProduct }) => {
 
                   <div className="mb-4">
                     <h2 className="text-3xl font-bold text-gray-800">
-                      Edit Product
+                      Edit Tutors
                     </h2>
                     <p className="text-gray-500 mt-2">
                       Fill all information carefully
@@ -87,7 +87,7 @@ const EditProduct = ({ singleProduct }) => {
                   {/* Name */}
                   <TextField isRequired name="name" type="text" defaultValue={singleProduct.name}>
                     <Label className="text-sm font-semibold text-gray-700">
-                      Product Name
+                      Tutor Name
                     </Label>
 
                     <div className="relative">
@@ -102,10 +102,10 @@ const EditProduct = ({ singleProduct }) => {
                     <FieldError />
                   </TextField>
 
-                  {/* Description */}
-                  <TextField isRequired name="description" type="text" defaultValue={singleProduct.description}>
+                  {/* category */}
+                  <TextField isRequired name="category" type="text" defaultValue={singleProduct.category}>
                     <Label className="text-sm font-semibold text-gray-700">
-                      Description
+                      Category
                     </Label>
 
                     <div className="relative">
@@ -120,10 +120,46 @@ const EditProduct = ({ singleProduct }) => {
                     <FieldError />
                   </TextField>
 
-                  {/* Price */}
-                  <TextField isRequired name="price" type="number" defaultValue={singleProduct.price}>
+                    {/* availableDays */}
+                   <TextField isRequired name="availableDays" type="text" defaultValue={singleProduct.availableDays}>
                     <Label className="text-sm font-semibold text-gray-700">
-                      Price
+                      AvailableDays
+                    </Label>
+
+                    <div className="relative">
+                      <AlignLeft className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                      <Input
+                        defaultValue={singleProduct.description}
+                        className="pl-11 h-12 w-full rounded-xl border border-gray-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition"
+                      />
+                    </div>
+
+                    <FieldError />
+                  </TextField>
+
+                       {/* timeslot */}
+                   <TextField isRequired name="timeSlot" type="text" defaultValue={singleProduct.timeSlot}>
+                    <Label className="text-sm font-semibold text-gray-700">
+                      TimeSlot
+                    </Label>
+
+                    <div className="relative">
+                      <AlignLeft className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                      <Input
+                        defaultValue={singleProduct.description}
+                        className="pl-11 h-12 w-full rounded-xl border border-gray-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition"
+                      />
+                    </div>
+
+                    <FieldError />
+                  </TextField>
+
+                  {/* hurly */}
+                  <TextField isRequired name="hourly" type="number" defaultValue={singleProduct.hourly}>
+                    <Label className="text-sm font-semibold text-gray-700">
+                      Hourly
                     </Label>
 
                     <div className="relative">
@@ -138,10 +174,82 @@ const EditProduct = ({ singleProduct }) => {
                     <FieldError />
                   </TextField>
 
-                  {/* Stock */}
-                  <TextField isRequired name="stock" type="text" defaultValue={singleProduct.stock}>
+                  {/* slot */}
+                  <TextField isRequired name="slot" type="number" defaultValue={singleProduct.slot}>
                     <Label className="text-sm font-semibold text-gray-700">
-                      InStock
+                      Slot
+                    </Label>
+
+                    <div className="relative">
+                      <Package className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                      <Input
+                        defaultValue={singleProduct.stock}
+                        className="pl-11 h-12 w-full rounded-xl border border-gray-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition"
+                      />
+                    </div>
+
+                    <FieldError />
+                  </TextField>
+
+                    {/* session */}
+                  <TextField isRequired name="session" type="date" defaultValue={singleProduct.session}>
+                    <Label className="text-sm font-semibold text-gray-700">
+                      Session
+                    </Label>
+
+                    <div className="relative">
+                      <Package className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                      <Input
+                        defaultValue={singleProduct.stock}
+                        className="pl-11 h-12 w-full rounded-xl border border-gray-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition"
+                      />
+                    </div>
+
+                    <FieldError />
+                  </TextField>
+
+                    {/* experience */}
+                  <TextField isRequired name="experience" type="number" defaultValue={singleProduct.experience}>
+                    <Label className="text-sm font-semibold text-gray-700">
+                      Experience
+                    </Label>
+
+                    <div className="relative">
+                      <Package className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                      <Input
+                        defaultValue={singleProduct.stock}
+                        className="pl-11 h-12 w-full rounded-xl border border-gray-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition"
+                      />
+                    </div>
+
+                    <FieldError />
+                  </TextField>
+
+                    {/* Location */}
+                  <TextField isRequired name="location" type="text" defaultValue={singleProduct.location}>
+                    <Label className="text-sm font-semibold text-gray-700">
+                      Location
+                    </Label>
+
+                    <div className="relative">
+                      <Package className="absolute left-3 top-1/2 -translate-y-1/2 text-violet-500 w-5 h-5" />
+
+                      <Input
+                        defaultValue={singleProduct.stock}
+                        className="pl-11 h-12 w-full rounded-xl border border-gray-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 transition"
+                      />
+                    </div>
+
+                    <FieldError />
+                  </TextField>
+
+                    {/* teachingmode */}
+                  <TextField isRequired name="teachingmode" type="text" defaultValue={singleProduct.teachingmode}>
+                    <Label className="text-sm font-semibold text-gray-700">
+                     Teachingmode
                     </Label>
 
                     <div className="relative">
