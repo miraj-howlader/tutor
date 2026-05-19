@@ -1,7 +1,7 @@
 import { auth } from '@/lib/auth'
 import { headers } from 'next/headers'
 import React from 'react'
-import { Table, Button } from '@heroui/react'
+import { Table } from '@heroui/react'
 import CancelBooking from '@/components/CancelBooking'
 
 const MyBookedPage = async () => {
@@ -20,14 +20,19 @@ const MyBookedPage = async () => {
   }
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${user.id}`
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${user.id}`,
+    { cache: 'no-store' }
   )
 
-  const bookingData = await res.json()
- 
+  const result = await res.json()
+
+  // 🔥 FIX: ensure array
+  const bookingData = Array.isArray(result)
+    ? result
+    : result?.data || []
 
   return (
-    <div className="p-6">
+    <div className="p-6 pb-144">
       <h1 className="text-2xl font-bold mb-4">
         My Booked Sessions
       </h1>
@@ -42,28 +47,29 @@ const MyBookedPage = async () => {
           </Table.Header>
 
           <Table.Body>
-            {bookingData?.length > 0 ? (
+            {bookingData.length > 0 ? (
               bookingData.map((booking) => (
                 <Table.Row key={booking._id}>
-                  <Table.Cell>{booking.tutorname}</Table.Cell>
-                  <Table.Cell>{booking.studentName}</Table.Cell>
-                  <Table.Cell>{booking.email}</Table.Cell>
-               
-                 
+                  <Table.Cell>
+                    {booking.tutorname}
+                  </Table.Cell>
 
                   <Table.Cell>
-                    
-                      <CancelBooking booking={booking}/>
-                   
+                    {booking.studentName}
+                  </Table.Cell>
+
+                  <Table.Cell>
+                    {booking.email}
+                  </Table.Cell>
+
+                  <Table.Cell>
+                    <CancelBooking booking={booking} />
                   </Table.Cell>
                 </Table.Row>
               ))
             ) : (
               <Table.Row>
-                <Table.Cell>No bookings found  😒😒</Table.Cell>
-                <Table.Cell />
-                <Table.Cell />
-                <Table.Cell />
+                <Table.Cell className={'text-3xl font-bold items-center justify-center flex'}>No bookings found 😒 Add booked first</Table.Cell>
                 <Table.Cell />
                 <Table.Cell />
                 <Table.Cell />

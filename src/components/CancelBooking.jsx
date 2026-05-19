@@ -2,6 +2,7 @@
 import React from 'react'
 import {AlertDialog, Button} from "@heroui/react";
 import { authClient } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
 
 
 const CancelBooking = ({booking}) => {
@@ -16,11 +17,20 @@ const CancelBooking = ({booking}) => {
             }
         })
         const data =await res.json()
+        if(data){
+            toast.success('Booked successfully Canceled')
+        }
         window.location.reload()
+    }
+
+    if(!booking){
+        <div className=' items-center justify-center flex'>
+            <h1 className='text-4xl font-bold'>No Booking Found!</h1>
+        </div>
     }
   return (
     <div>
-         <AlertDialog>
+    <AlertDialog>
       <Button variant="danger">Cancel</Button>
       <AlertDialog.Backdrop>
         <AlertDialog.Container>
