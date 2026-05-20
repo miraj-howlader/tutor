@@ -19,9 +19,11 @@ import {
   Loader2,
 } from 'lucide-react'
 import toast from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 
 const CreateTutors = () => {
   const [loading, setLoading] = useState(false)
+  const router = useRouter()
 
   const handleTutor = async (e) => {
     e.preventDefault()
@@ -46,6 +48,7 @@ const CreateTutors = () => {
 
       if (data) {
         toast.success('Tutor created successfully')
+        router.push('/tutors')
       }
     } catch (error) {
       toast.error(`Create tutor error: ${error}`)
