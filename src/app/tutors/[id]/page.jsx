@@ -1,10 +1,13 @@
 import BookingCard from '@/components/BookingCard'
 import { auth } from '@/lib/auth'
-
 import { Package, Tag } from 'lucide-react'
 import { headers } from 'next/headers'
 import Image from 'next/image'
 import React from 'react'
+
+ export const metadata = {
+    title:"Tutor - DetailsPage"
+  }
 
 const ProductDetailsPage = async ({ params }) => {
   const { id } = await params

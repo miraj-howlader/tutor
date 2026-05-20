@@ -21,6 +21,7 @@ import {
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 
+
 const CreateTutors = () => {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
@@ -28,9 +29,11 @@ const CreateTutors = () => {
   const handleTutor = async (e) => {
     e.preventDefault()
     setLoading(true)
+    
 
     const formData = new FormData(e.currentTarget)
     const tutorData = Object.fromEntries(formData.entries())
+    
 
     try {
       const res = await fetch(
@@ -39,6 +42,7 @@ const CreateTutors = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            
           },
           body: JSON.stringify(tutorData),
         }

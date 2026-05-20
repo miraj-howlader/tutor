@@ -7,7 +7,7 @@ import WhyChoose from "@/components/WhyChoseUs";
 
 export default function Home() {
   return (
-    <div className="text-red-400">
+    <div>
       <Banner/>
       <Featured/>
       <WhyChoose/>

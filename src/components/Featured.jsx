@@ -4,6 +4,10 @@ import React from 'react'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import ProductCard from './ProductCard'
 
+ export const metadata = {
+    title:"Featured"
+  }
+
 const Featured = async () => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/featured`)

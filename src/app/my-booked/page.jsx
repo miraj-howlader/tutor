@@ -4,6 +4,10 @@ import React from 'react'
 import { Table } from '@heroui/react'
 import CancelBooking from '@/components/CancelBooking'
 
+ export const metadata = {
+    title:"My-booking"
+  }
+
 const MyBookedPage = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),

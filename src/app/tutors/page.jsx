@@ -4,9 +4,13 @@ import ProductCard from '@/components/ProductCard'
 import { Search, Loader2 } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 
+
+
 const AllProducts = () => {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+
+ 
 
   // 🔎 separate filters
   const [nameSearch, setNameSearch] = useState('')
