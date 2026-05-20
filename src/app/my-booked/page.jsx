@@ -33,6 +33,7 @@ const MyBookedPage = async () => {
   )
 
   const result = await res.json()
+  console.log(result)
 
   // 🔥 FIX: ensure array
   const bookingData = Array.isArray(result)
@@ -51,6 +52,8 @@ const MyBookedPage = async () => {
             <Table.Column>Tutor Name</Table.Column>
             <Table.Column>Student Name</Table.Column>
             <Table.Column>Email</Table.Column>
+            <Table.Column>Mobile</Table.Column>
+            <Table.Column>Status</Table.Column>
             <Table.Column>Actions</Table.Column>
           </Table.Header>
 
@@ -69,6 +72,20 @@ const MyBookedPage = async () => {
                   <Table.Cell>
                     {booking.email}
                   </Table.Cell>
+                  <Table.Cell>
+                    {booking.mobile}
+                  </Table.Cell>
+                  <Table.Cell >
+                     <button
+        className={`px-3 py-1 rounded-full text-sm font-bold transition-all duration-300 ${
+      booking.status === 'true'
+        ? 'bg-green-100 text-green-600 border border-green-500'
+        : 'bg-red-100 text-red-500 border border-red-400'
+    }`}
+  >
+    {booking.status === 'true' ? 'Approved' : 'Pending'}
+  </button>
+                  </Table.Cell>
 
                   <Table.Cell>
                     <CancelBooking booking={booking} />
@@ -78,6 +95,8 @@ const MyBookedPage = async () => {
             ) : (
               <Table.Row>
                 <Table.Cell className={'text-3xl font-bold items-center justify-center flex'}>No bookings found 😒 Add booked first</Table.Cell>
+                <Table.Cell />
+                <Table.Cell />
                 <Table.Cell />
                 <Table.Cell />
                 <Table.Cell />

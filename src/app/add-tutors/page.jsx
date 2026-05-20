@@ -159,6 +159,20 @@ const CreateTutors = () => {
               <FieldError />
             </TextField>
 
+            {/* Mobile */}
+            <TextField isRequired name="mobile">
+              <Label>Mobile</Label>
+              <Input placeholder="+880" type='number' />
+              <FieldError />
+            </TextField>
+
+            {/* Status */}
+            <TextField isRequired name="status">
+              <Label>Status</Label>
+              <Input placeholder="Status" />
+              <FieldError />
+            </TextField>
+
             {/* TEACHING MODE */}
             <div>
               <Label>Teaching Mode</Label>

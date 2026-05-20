@@ -4,13 +4,14 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import {
   Menu,
-  Search,
+ 
   ShoppingBag,
   User,
   X,
 } from 'lucide-react'
 import { authClient } from '@/lib/auth-client'
 import { Avatar, Button } from '@heroui/react'
+import Image from 'next/image'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -121,18 +122,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* MOBILE SEARCH */}
-      <div className="px-4 pb-4 md:hidden">
-        <div className="relative">
-          <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
 
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="h-12 w-full rounded-2xl border border-white/10 bg-white/5 pl-12 pr-4 text-sm text-white outline-none placeholder:text-gray-500 focus:border-violet-500"
-          />
-        </div>
-      </div>
 
       {/* MOBILE MENU */}
       {menuOpen && (
@@ -172,7 +162,7 @@ const Navbar = () => {
             ) : (
               <button className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white">
                 <User className="h-5 w-5" />
-                Profile
+                <Image src={isLoggedIn.image} alt='image' width={40} height={40} className=' object-cover rounded-field'/>
               </button>
             )}
           </div>

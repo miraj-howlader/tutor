@@ -5,7 +5,7 @@ import { authClient } from '@/lib/auth-client'
 import { Button } from '@heroui/react'
 import toast from 'react-hot-toast'
 import { CalendarPlus, Loader2, User } from 'lucide-react'
-import { redirect, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 const BookingCard = ({ singleProduct }) => {
   const { data: session } = authClient.useSession()
@@ -15,6 +15,8 @@ const BookingCard = ({ singleProduct }) => {
   const [loading, setLoading] = useState(false)
 
   const handleBooking = async () => {
+    const {data:tokenData}= await authClient.token()
+
     if (!user) {
       toast.error('Please login first')
       return
@@ -27,6 +29,8 @@ const BookingCard = ({ singleProduct }) => {
         userId: user.id || user._id,
         email: user.email,
         studentName: user.name,
+        mobile: singleProduct.mobile,
+        status: singleProduct.status,
         tutorname: singleProduct?.name,
       }
 
@@ -36,6 +40,7 @@ const BookingCard = ({ singleProduct }) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            authorization: `Bearer ${tokenData?.token}`
           },
           body: JSON.stringify(bookingData),
         }
@@ -86,6 +91,14 @@ const BookingCard = ({ singleProduct }) => {
         <p>
           <span className="font-semibold">Slots:</span>{' '}
           {singleProduct?.slot}
+        </p>
+        <p>
+          <span className="font-semibold">Mobile:</span>{' '}
+          {singleProduct?.mobile}
+        </p>
+        <p>
+          <span className="font-semibold">Mobile:</span>{' '}
+          {singleProduct?.status}
         </p>
       </div>
 

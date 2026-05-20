@@ -13,8 +13,7 @@ const ProductDetailsPage = async ({ params }) => {
   })
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/single/${id}`,
-    {
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/single/${id}`,{
     headers:{
       authorization:`Bearer ${token}`
     }
@@ -67,6 +66,9 @@ const ProductDetailsPage = async ({ params }) => {
           </p>
           <p className="text-gray-600 leading-relaxed">
             Location: {singleProduct.location}
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            Mobile: {singleProduct.mobile}
           </p>
           <p className="text-gray-600 leading-relaxed">
             Teachingmode: {singleProduct.teachingmode}

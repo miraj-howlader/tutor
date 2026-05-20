@@ -20,11 +20,11 @@ export const auth = betterAuth({
     // Optional: if you don't provide a client, database transactions won't be enabled.
     client
   }),
-  session:{
-    cookieCache:{
+  session: {
+    cookieCache: {
         enabled:true,
         strategy:'jwt',
-        maxAge:7*24*60*60
+        maxAge:7 * 24 * 60 * 60
     }
   },
   plugins:[
