@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { Card } from '@heroui/react'
+import { motion } from 'motion/react'
 import {
   CheckCircle,
   Clock,
@@ -46,21 +47,31 @@ const features = [
 
 const WhyChoose = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-slate-50">
+    <section
+           
+     className="py-16 bg-gradient-to-b from-white to-slate-50">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* Header */}
-        <div className="text-center mb-12">
+        <motion.div
+           initial={{ opacity: 0, y:20 }}
+            animate={{ opacity: 1, y:0}}
+            transition={{ duration: 0.7 }}
+         className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900">
             Why Choose MediQueue?
           </h2>
           <p className="text-gray-500 mt-3">
             A smarter way to connect students with expert tutors
           </p>
-        </div>
+        </motion.div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+         initial={{ opacity: 0, scale:0.5 }}
+            animate={{ opacity: 1, scale:1.0}}
+            transition={{ duration: 0.7 }}
+         className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((item, index) => (
             <Card
               key={index}
@@ -77,7 +88,7 @@ const WhyChoose = () => {
               </p>
             </Card>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

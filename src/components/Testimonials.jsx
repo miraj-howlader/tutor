@@ -3,6 +3,7 @@
 import React from 'react'
 import { Card } from '@heroui/react'
 import { Star } from 'lucide-react'
+import { motion } from 'motion/react'
 
 const reviews = [
   {
@@ -31,17 +32,25 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-4">
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <motion.div
+        initial={{opacity:0, x:20}}
+        animate={{opacity:1,x:0}}
+        transition={{duration:0.5}}
+         className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900">
             What Students Say
           </h2>
           <p className="text-gray-500 mt-3">
             Real feedback from our learners
           </p>
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <motion.div
+         initial={{ opacity: 0, y:20 }}
+            animate={{ opacity: 1, y:0}}
+            transition={{ duration: 0.7, delay:0.1 }}
+         className="grid md:grid-cols-3 gap-6">
           {reviews.map((item, index) => (
             <Card
               key={index}
@@ -68,7 +77,7 @@ const Testimonials = () => {
               </div>
             </Card>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

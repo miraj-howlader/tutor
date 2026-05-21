@@ -118,7 +118,7 @@ const SignInPage = () => {
               </TextField>
     
               {/* CONFIRM PASSWORD */}
-             
+               <p className="text-sm text-gray-500 justify-end flex">Forgot Password</p>
     
               {/* SIGNUP BUTTON */}
               <Button

@@ -1,8 +1,10 @@
+
 import { Button } from '@heroui/react'
 import Link from 'next/link'
 import React from 'react'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import ProductCard from './ProductCard'
+
 
  export const metadata = {
     title:"Featured"
@@ -15,7 +17,10 @@ const Featured = async () => {
   const tutorData = await res.json()
 
   return (
-    <section className="relative overflow-hidden py-16">
+    <section
+   
+    
+     className="relative overflow-hidden py-16">
       {/* Background Blur */}
       <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-violet-500/10 blur-3xl" />
